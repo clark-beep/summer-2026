@@ -1,1 +1,327 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summer 2026 - Forkan Family</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --bg: #F0FAF4; --card: #FFFFFF; --text: #1A2E1A; --text-secondary: #4A6D4A;
+    --text-muted: #8BA68B; --border: #D4E8D4; --emerald: #059669; --emerald-light: #D1FAE5;
+    --emerald-dark: #047857; --blue: #0284C7; --blue-light: #E0F2FE; --amber: #D97706;
+    --amber-light: #FEF3C7; --red: #DC2626; --red-light: #FEE2E2; --purple: #7C3AED;
+    --gradient: linear-gradient(135deg, #059669 0%, #0284C7 50%, #0EA5E9 100%);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05); --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --radius: 14px; --radius-sm: 10px;
+  }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 680px; margin: 0 auto; padding: 16px; }
+  .header { background: var(--gradient); border-radius: var(--radius) var(--radius) 0 0; padding: 36px 28px 28px; color: white; position: relative; overflow: hidden; }
+  .header::before { content: ''; position: absolute; top: -60%; right: -25%; width: 300px; height: 300px; background: rgba(255,255,255,0.07); border-radius: 50%; }
+  .header-content { position: relative; z-index: 1; }
+  .header-flag { font-size: 28px; margin-bottom: 4px; }
+  .header h1 { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
+  .header .subtitle { font-size: 14px; opacity: 0.85; }
+  .header .dates { display: inline-block; background: rgba(255,255,255,0.18); border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; padding: 4px 14px; font-size: 13px; font-weight: 500; margin-top: 12px; }
+  .kids-row { display: flex; gap: 10px; margin-top: 16px; }
+  .kid-badge { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: var(--radius-sm); padding: 8px 14px; flex: 1; text-align: center; }
+  .kid-badge .name { font-weight: 700; font-size: 15px; }
+  .kid-badge .age { font-size: 12px; opacity: 0.8; }
+  .nav { position: sticky; top: 0; z-index: 100; background: var(--emerald-dark); border-radius: 0 0 var(--radius) var(--radius); padding: 0 8px; display: flex; overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: 20px; box-shadow: var(--shadow); }
+  .nav a { padding: 11px 14px; color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.82em; font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .nav a:hover, .nav a.active { color: #fff; border-bottom-color: #FEF3C7; }
+  .section { margin-bottom: 16px; }
+  .section-header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; padding: 0 4px; }
+  .section-icon { font-size: 18px; }
+  .section-title { font-size: 16px; font-weight: 700; }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px; box-shadow: var(--shadow-sm); }
+  .card + .card { margin-top: 10px; }
+  .activity-card { border-left: 4px solid var(--blue); }
+  .activity-card.horse { border-left-color: #8B4513; }
+  .activity-card.soccer { border-left-color: #16A34A; }
+  .activity-card.tennis { border-left-color: #EAB308; }
+  .activity-card.swim { border-left-color: var(--blue); }
+  .activity-card.cook { border-left-color: #EA580C; }
+  .activity-card.multi { border-left-color: var(--purple); }
+  .activity-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+  .activity-name { font-size: 15px; font-weight: 700; }
+  .activity-provider { font-size: 12px; color: var(--text-secondary); margin-top: 1px; }
+  .cost-badge { background: var(--emerald-light); color: var(--emerald-dark); padding: 3px 10px; border-radius: 8px; font-size: 12px; font-weight: 700; white-space: nowrap; }
+  .meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 4px; margin: 8px 0; }
+  .meta-item { font-size: 12px; color: var(--text-secondary); display: flex; gap: 6px; }
+  .activity-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.5; margin: 8px 0; }
+  .fit-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 10px; }
+  .tag { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .tag-yes { background: var(--emerald-light); color: var(--emerald-dark); }
+  .tag-no { background: var(--red-light); color: var(--red); }
+  .tag-maybe { background: var(--amber-light); color: var(--amber); }
+  .contact-row { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-size: 12px; color: var(--text-muted); }
+  .contact-row a { color: var(--blue); text-decoration: none; }
+  .contact-row a:hover { text-decoration: underline; }
+  .deadline-card { background: linear-gradient(135deg, #FFF7ED 0%, #FEF3C7 100%); border: 1px solid #FDE68A; }
+  .deadline-item { display: flex; align-items: flex-start; gap: 10px; padding: 8px 0; }
+  .deadline-item + .deadline-item { border-top: 1px dashed #FDE68A; }
+  .deadline-date { padding: 2px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; white-space: nowrap; min-width: 70px; text-align: center; color: white; }
+  .deadline-date.urgent { background: var(--red); }
+  .deadline-date.soon { background: var(--amber); }
+  .deadline-date.later { background: var(--emerald); }
+  .deadline-info { font-size: 13px; color: var(--text-secondary); }
+  .deadline-info strong { color: var(--text); }
+  .blocker-item { display: flex; gap: 10px; padding: 8px 0; font-size: 13px; }
+  .blocker-item + .blocker-item { border-top: 1px dashed var(--border); }
+  .blocker-date { font-weight: 700; color: var(--amber); min-width: 100px; font-size: 12px; }
+  .blocker-text { color: var(--text-secondary); }
+  .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .fit-col { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; box-shadow: var(--shadow-sm); }
+  .fit-col h3 { font-size: 14px; margin-bottom: 10px; }
+  .fit-row { display: flex; justify-content: space-between; padding: 5px 0; border-bottom: 1px solid var(--border); font-size: 12px; }
+  .fit-row:last-child { border-bottom: none; }
+  .footer { text-align: center; padding: 24px 0; color: var(--text-muted); font-size: 11px; }
+  .footer a { color: var(--blue); text-decoration: none; }
+  @media (max-width: 480px) { .container { padding: 10px; } .header { padding: 28px 20px 22px; } .header h1 { font-size: 22px; } .fit-grid { grid-template-columns: 1fr; } .meta-grid { grid-template-columns: 1fr; } .nav a { padding: 10px 10px; font-size: 0.78em; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <div class="header-content">
+      <div class="header-flag">☀️</div>
+      <h1>Summer 2026</h1>
+      <div class="subtitle">Camps & Activities · Stamford / Norwalk, CT</div>
+      <div class="dates">Jun 23 – Aug 14 (8 camp weeks)</div>
+      <div class="kids-row">
+        <div class="kid-badge"><div class="name">Charlotte</div><div class="age">Turning 9 · May 20</div></div>
+        <div class="kid-badge"><div class="name">Eloise</div><div class="age">Age 6 · Jan 31</div></div>
+      </div>
+    </div>
+  </div>
+  <nav class="nav">
+    <a href="#deadlines" class="active">🔴 Deadlines</a>
+    <a href="#horse">🐴 Horses</a>
+    <a href="#soccer">⚽ Soccer</a>
+    <a href="#tennis">🎾 Tennis</a>
+    <a href="#swim">🏊 Swimming</a>
+    <a href="#cook">🍳 Cooking</a>
+    <a href="#multi">🏃 Multi-Sport</a>
+    <a href="#blockers">⚠️ Blockers</a>
+    <a href="#fit">📋 Fit Guide</a>
+  </nav>
+
+  <div id="deadlines" class="section">
+    <div class="section-header"><span class="section-icon">🚨</span><span class="section-title">Action Items</span></div>
+    <div class="card deadline-card">
+      <div class="deadline-item"><span class="deadline-date urgent">MAR 16</span><div class="deadline-info"><strong>Peak Performance</strong> registration opens on Stamford Rec site. Fills fast. Both girls.</div></div>
+      <div class="deadline-item"><span class="deadline-date urgent">ASAP</span><div class="deadline-info"><strong>Hudson Table Young Kids</strong> for Eloise. AM sold out. PM (1-4pm) still available.</div></div>
+      <div class="deadline-item"><span class="deadline-date soon">CONTACT</span><div class="deadline-info"><strong>Getner Barn</strong> — confirm 2026 camp dates & availability. Michelle@getnerbarn.com / 203-451-2521</div></div>
+      <div class="deadline-item"><span class="deadline-date soon">CONTACT</span><div class="deadline-info"><strong>JA Elite Soccer</strong> — Mar 7 tryout passed. Ask about Charlotte's next eval.</div></div>
+      <div class="deadline-item"><span class="deadline-date later">MAY 24</span><div class="deadline-info"><strong>Roxbury aquatics registration</strong> — Swim, Dive, Water Polo, Synchro. Reminder set.</div></div>
+      <div class="deadline-item"><span class="deadline-date later">TBD</span><div class="deadline-info"><strong>Roxbury Kids Club</strong> — 2026 dates not published. On notification list.</div></div>
+    </div>
+  </div>
+
+  <div id="horse" class="section">
+    <div class="section-header"><span class="section-icon">🐴</span><span class="section-title">Horseback Riding</span></div>
+    <div class="card activity-card horse">
+      <div class="activity-top"><div><div class="activity-name">Summer Horse Camp</div><div class="activity-provider">Getner Barn · 16 Richards Ave, Norwalk</div></div><span class="cost-badge">$700/wk</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>👶</span> Ages 6+</div>
+        <div class="meta-item"><span>⏰</span> 8:30 AM – 12:30 PM</div>
+        <div class="meta-item"><span>📅</span> ~Jun 16 – Aug 18 (10 wks)</div>
+        <div class="meta-item"><span>💳</span> $400 deposit to hold spot</div>
+      </div>
+      <div class="activity-desc">Riding lessons, horsemanship, grooming, horse care, bareback rides, horseback games, bathing horses. Small family operation with rescued horses, 25+ years. Need riding boots + approved helmet.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte</span><span class="tag tag-yes">✅ Eloise</span></div>
+      <div class="contact-row">📧 <a href="mailto:Michelle@getnerbarn.com">Michelle@getnerbarn.com</a> · 📞 203-451-2521 · <a href="http://getnerbarn.com">getnerbarn.com</a></div>
+    </div>
+  </div>
+
+  <div id="soccer" class="section">
+    <div class="section-header"><span class="section-icon">⚽</span><span class="section-title">Soccer</span></div>
+    <div class="card activity-card soccer">
+      <div class="activity-top"><div><div class="activity-name">SELECT Program</div><div class="activity-provider">JA Elite Soccer · Stamford</div></div><span class="cost-badge">$750/season</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>👶</span> Birth years 2012-2018</div>
+        <div class="meta-item"><span>⏰</span> Mon/Wed evenings</div>
+        <div class="meta-item"><span>⚠️</span> Tryout required</div>
+        <div class="meta-item"><span>🏆</span> Seaside Classic Jul 11-12</div>
+      </div>
+      <div class="activity-desc">Invite-only competitive program. ⚠️ Hershey Cup Aug 15-16 conflicts with Ainsley wedding.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte (2017)</span><span class="tag tag-no">❌ Eloise (2020)</span></div>
+      <div class="contact-row">🔗 <a href="https://jaelitesoccer.com">jaelitesoccer.com</a></div>
+    </div>
+    <div class="card activity-card soccer">
+      <div class="activity-top"><div><div class="activity-name">Soccer Camp</div><div class="activity-provider">Chelsea Piers CT · Stamford</div></div><span class="cost-badge">TBD</span></div>
+      <div class="activity-desc">Multi-sport and soccer-specific camps. Full day. Details TBD.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte</span><span class="tag tag-yes">✅ Eloise</span></div>
+      <div class="contact-row">🔗 <a href="https://chelseapiersct.com">chelseapiersct.com</a></div>
+    </div>
+  </div>
+
+  <div id="tennis" class="section">
+    <div class="section-header"><span class="section-icon">🎾</span><span class="section-title">Tennis</span></div>
+    <div class="card activity-card tennis">
+      <div class="activity-top"><div><div class="activity-name">Junior Tennis Team</div><div class="activity-provider">Roxbury Swim & Tennis Club</div></div><span class="cost-badge">$50/season</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>⏰</span> Wed afternoons + optional Sat</div>
+        <div class="meta-item"><span>🏆</span> Awards ceremony</div>
+      </div>
+      <div class="activity-desc">Interclub matches (home & away). Includes team shirt, coaching, refreshments, socials. Awards: Sportsmanship, Most Improved, Unbeatable, Director's Award.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte</span><span class="tag tag-yes">✅ Eloise</span></div>
+    </div>
+  </div>
+
+  <div id="swim" class="section">
+    <div class="section-header"><span class="section-icon">🏊</span><span class="section-title">Swimming & Aquatics</span></div>
+    <div style="font-size:12px; color:var(--text-muted); margin-bottom:10px; padding:0 4px;">Registration opens <strong style="color:var(--amber);">May 24</strong> at roxburyclub.com · Member: FOR128</div>
+    <div class="card activity-card swim">
+      <div class="activity-top"><div><div class="activity-name">Swim Team (Div 1 FCSL)</div><div class="activity-provider">Roxbury Club</div></div><span class="cost-badge">TBD</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>👶</span> Ages 7-17 (as of Jun 15)</div>
+        <div class="meta-item"><span>📅</span> 1 intra-squad + 5 dual meets</div>
+        <div class="meta-item"><span>🏅</span> Divisional + County Champs</div>
+      </div>
+      <div class="activity-desc">Co-ed competitive. Age groups: 8&under, 10&under, 12&under. Events: free, back, breast, fly, IM. Must swim min 2 of 5 meets.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte (8&under)</span><span class="tag tag-maybe">⚠️ Eloise (verify age 7 min)</span></div>
+    </div>
+    <div class="card activity-card swim">
+      <div class="activity-top"><div><div class="activity-name">Dive Team (Div 1 FCSL)</div><div class="activity-provider">Roxbury Club</div></div><span class="cost-badge">TBD</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>👶</span> Ages 8-17 (as of Jun 15)</div>
+        <div class="meta-item"><span>📅</span> 5 dual meets + County Champs</div>
+      </div>
+      <div class="activity-desc">10&under: front jump + 4 dives. Min 2 meets for championship eligibility.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte</span><span class="tag tag-no">❌ Eloise (min 8)</span></div>
+    </div>
+    <div class="card activity-card swim">
+      <div class="activity-top"><div><div class="activity-name">Water Polo (Div 1 FCSL)</div><div class="activity-provider">Roxbury Club</div></div><span class="cost-badge">TBD</span></div>
+      <div class="activity-desc">3 co-ed teams: Minis (7-10), Juniors (11-13), Seniors (14-17). 5 dual games.</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte (Minis)</span><span class="tag tag-maybe">⚠️ Eloise (min age 7)</span></div>
+    </div>
+    <div class="card activity-card swim">
+      <div class="activity-top"><div><div class="activity-name">Group Swim Clinics</div><div class="activity-provider">Roxbury Club</div></div></div>
+      <div class="activity-desc"><strong>Level 1:</strong> Water safety, bubbles, float, beginning freestyle.<br><strong>Level 2:</strong> Stroke development, freestyle, backstroke, breathing.<br><em>Evaluation required before registration.</em></div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte (L2)</span><span class="tag tag-yes">✅ Eloise (L1)</span></div>
+    </div>
+    <div class="card activity-card swim">
+      <div class="activity-top"><div><div class="activity-name">Other Aquatics</div><div class="activity-provider">Roxbury Club</div></div></div>
+      <div class="activity-desc"><strong>Future Stars Swim & Dive</strong> — advanced clinics, evaluation required<br><strong>Synchro Swimming</strong> — team, reg opens May 24<br><strong>Noodle Water Polo</strong> — fun, less competitive<br><strong>Private Lessons</strong> — 1-on-1, pool@roxburyclub.com</div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Both girls</span></div>
+    </div>
+  </div>
+
+  <div id="cook" class="section">
+    <div class="section-header"><span class="section-icon">🍳</span><span class="section-title">Cooking</span></div>
+    <div class="card activity-card cook">
+      <div class="activity-top"><div><div class="activity-name">Ages 8-14 Camps</div><div class="activity-provider">Hudson Table · Stamford</div></div><span class="cost-badge">TBD</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>📅</span> Jun 22-26: Culinary Techniques</div>
+        <div class="meta-item"><span>📅</span> Jul 6-10: Competitions</div>
+        <div class="meta-item"><span>📅</span> Jul 13-17: Baking & Pastry</div>
+        <div class="meta-item"><span>⏰</span> Full day camps</div>
+      </div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte</span><span class="tag tag-no">❌ Eloise (too young)</span></div>
+      <div class="contact-row">🔗 <a href="https://hudsontable.com">hudsontable.com</a></div>
+    </div>
+    <div class="card activity-card cook">
+      <div class="activity-top"><div><div class="activity-name">Young Kids Cooking (4-7)</div><div class="activity-provider">Hudson Table · Stamford</div></div></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>📅</span> Jun 29 – Jul 2</div>
+        <div class="meta-item"><span>⏰</span> PM only: 1-4 PM</div>
+        <div class="meta-item"><span>🔴</span> AM session SOLD OUT</div>
+      </div>
+      <div class="fit-tags"><span class="tag tag-no">❌ Charlotte (too old)</span><span class="tag tag-yes">✅ Eloise (PM available)</span></div>
+    </div>
+  </div>
+
+  <div id="multi" class="section">
+    <div class="section-header"><span class="section-icon">🏃</span><span class="section-title">Multi-Sport & General</span></div>
+    <div class="card activity-card multi">
+      <div class="activity-top"><div><div class="activity-name">Peak Performance Sports Camp</div><div class="activity-provider">Scofield Magnet School · Stamford</div></div><span class="cost-badge">$200-300/wk</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>👶</span> Ages 5-14</div>
+        <div class="meta-item"><span>⏰</span> Half or Full day</div>
+        <div class="meta-item"><span>📅</span> Jun 22 – Aug 14 (8 wks)</div>
+        <div class="meta-item"><span>🔴</span> Reg opens Mar 16!</div>
+      </div>
+      <div class="fit-tags"><span class="tag tag-yes">✅ Charlotte</span><span class="tag tag-yes">✅ Eloise</span></div>
+      <div class="contact-row">🔗 <a href="https://stamfordrecreation.com">stamfordrecreation.com</a></div>
+    </div>
+    <div class="card activity-card multi">
+      <div class="activity-top"><div><div class="activity-name">Kids Club</div><div class="activity-provider">Roxbury Swim & Tennis Club</div></div><span class="cost-badge">TBD</span></div>
+      <div class="meta-grid">
+        <div class="meta-item"><span>👶</span> Ages 4-8 (max 25/session)</div>
+        <div class="meta-item"><span>⏰</span> Mon-Fri 9:15 AM – 12 PM</div>
+        <div class="meta-item"><span>📅</span> 7 weekly sessions (TBD)</div>
+      </div>
+      <div class="activity-desc">Drop-off morning program. Tennis, pickleball, water fun, arts & crafts, games.</div>
+      <div class="fit-tags"><span class="tag tag-no">❌ Charlotte (max 8)</span><span class="tag tag-yes">✅ Eloise</span></div>
+    </div>
+  </div>
+
+  <div id="blockers" class="section">
+    <div class="section-header"><span class="section-icon">⚠️</span><span class="section-title">Summer Blockers</span></div>
+    <div class="card">
+      <div class="blocker-item"><span class="blocker-date">Jul 19-25</span><span class="blocker-text">Charlotte away with Nans & Pops. Only Eloise needs coverage.</span></div>
+      <div class="blocker-item"><span class="blocker-date">Aug 10</span><span class="blocker-text">Dad's birthday 🎂</span></div>
+      <div class="blocker-item"><span class="blocker-date">Aug 15</span><span class="blocker-text">Ainsley wedding, Chicago. (JA Hershey Cup same weekend, skip.)</span></div>
+      <div class="blocker-item"><span class="blocker-date">Aug 16-24</span><span class="blocker-text">Jeff in Scotland. Jeanette solo with kids.</span></div>
+    </div>
+  </div>
+
+  <div id="fit" class="section">
+    <div class="section-header"><span class="section-icon">📋</span><span class="section-title">Quick Fit Guide</span></div>
+    <div class="fit-grid">
+      <div class="fit-col">
+        <h3>🎀 Charlotte (9)</h3>
+        <div class="fit-row"><span>Getner Barn</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>JA Elite Soccer</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Junior Tennis</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Swim Team</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Dive Team</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Water Polo</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Swim Clinics (L2)</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Hudson Table</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Peak Performance</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Kids Club</span><span style="color:var(--red)">❌ max 8</span></div>
+      </div>
+      <div class="fit-col">
+        <h3>🌸 Eloise (6)</h3>
+        <div class="fit-row"><span>Getner Barn</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Junior Tennis</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Swim Clinics (L1)</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Hudson Table Kids</span><span style="color:var(--emerald)">✅ PM</span></div>
+        <div class="fit-row"><span>Peak Performance</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Kids Club</span><span style="color:var(--emerald)">✅</span></div>
+        <div class="fit-row"><span>Swim Team</span><span style="color:var(--amber)">⚠️ age 7</span></div>
+        <div class="fit-row"><span>Water Polo</span><span style="color:var(--amber)">⚠️ age 7</span></div>
+        <div class="fit-row"><span>Dive Team</span><span style="color:var(--red)">❌ min 8</span></div>
+        <div class="fit-row"><span>JA Elite</span><span style="color:var(--red)">❌ 2020</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Forkan Family · Summer 2026 🌴<br>
+    <a href="https://docs.google.com/spreadsheets/d/1P2jEWhvKkoXybdRr1eQZt0H2KKMnixZx7d26Q43WJWk/edit">Spreadsheet</a> · <a href="https://docs.google.com/document/d/11i4HjnQCXEoyzJRjU_icZ8K-Loe8u04p1hmSIfNmt0M/edit">Google Doc</a> · <a href="costa-rica.html">Costa Rica Trip</a><br>
+    Updated Mar 12, 2026
+  </div>
+</div>
+<script>
+document.querySelectorAll('.nav a').forEach(a => {
+  a.addEventListener('click', e => {
+    document.querySelectorAll('.nav a').forEach(x => x.classList.remove('active'));
+    a.classList.add('active');
+  });
+});
+const sections = document.querySelectorAll('.section[id]');
+const navLinks = document.querySelectorAll('.nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+  navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); });
+});
+</script>
+</body>
+</html>
