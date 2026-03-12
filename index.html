@@ -5,81 +5,79 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Forkan Summer 2026</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #F0FAF4; color: #1A2E1A; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f1117; color: #e0e0e0; }
 
 /* Hero */
-.hero { background: linear-gradient(135deg, #059669 0%, #0284C7 50%, #0EA5E9 100%); padding: 48px 24px 32px; text-align: center; color: white; }
-.hero h1 { font-size: 2.2em; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.5px; }
-.hero h1 span { color: #FEF3C7; }
-.hero .subtitle { color: rgba(255,255,255,0.8); font-size: 1em; }
+.hero { background: linear-gradient(135deg, #1a1f35 0%, #0d1117 100%); padding: 48px 24px 32px; text-align: center; border-bottom: 1px solid #21262d; }
+.hero h1 { font-size: 2.2em; color: #fff; margin-bottom: 8px; }
+.hero h1 span { background: linear-gradient(90deg, #f6c445, #f59e0b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero .subtitle { color: #8b949e; font-size: 1em; }
 .hero .kids { display: flex; justify-content: center; gap: 24px; margin-top: 16px; }
-.hero .kid { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 12px 20px; }
+.hero .kid { background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 12px 20px; }
 .hero .kid .name { font-weight: 700; font-size: 1.1em; }
-.hero .kid .age { color: rgba(255,255,255,0.75); font-size: 0.9em; }
+.hero .kid .age { color: #8b949e; font-size: 0.9em; }
 
 /* Nav tabs */
-.nav { position: sticky; top: 0; z-index: 100; background: #047857; padding: 0 16px; display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-.nav a { padding: 12px 16px; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85em; font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
-.nav a:hover, .nav a.active { color: #fff; border-bottom-color: #FEF3C7; }
+.nav { position: sticky; top: 0; z-index: 100; background: #161b22; border-bottom: 1px solid #21262d; padding: 0 16px; display: flex; gap: 0; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.nav a { padding: 12px 16px; color: #8b949e; text-decoration: none; font-size: 0.85em; font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav a:hover, .nav a.active { color: #f6c445; border-bottom-color: #f6c445; }
 
 /* Container */
 .container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
 
 /* Urgent banner */
-.urgent-banner { background: linear-gradient(135deg, #FFF7ED, #FEF3C7); border: 1px solid #FDE68A; border-radius: 14px; padding: 20px; margin-bottom: 24px; }
-.urgent-banner h2 { color: #92400E; font-size: 1.1em; margin-bottom: 12px; }
-.urgent-item { background: rgba(255,255,255,0.7); border-radius: 8px; padding: 12px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
-.urgent-item .date { color: #fff; border-radius: 6px; padding: 4px 10px; font-size: 0.8em; font-weight: 700; white-space: nowrap; min-width: 80px; text-align: center; background: #DC2626; }
-.urgent-item .date.orange { background: #D97706; }
+.urgent-banner { background: linear-gradient(90deg, #7f1d1d, #991b1b); border: 1px solid #dc2626; border-radius: 12px; padding: 20px; margin-bottom: 24px; }
+.urgent-banner h2 { color: #fca5a5; font-size: 1.1em; margin-bottom: 12px; }
+.urgent-item { background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px; margin: 8px 0; display: flex; align-items: flex-start; gap: 12px; }
+.urgent-item .date { background: #dc2626; color: #fff; border-radius: 6px; padding: 4px 10px; font-size: 0.8em; font-weight: 700; white-space: nowrap; min-width: 80px; text-align: center; }
+.urgent-item .date.orange { background: #d97706; }
 .urgent-item .date.green { background: #059669; }
-.urgent-item .info { font-size: 0.9em; line-height: 1.5; color: #4A6D4A; }
-.urgent-item .info strong { color: #1A2E1A; }
+.urgent-item .info { font-size: 0.9em; line-height: 1.5; }
 
 /* Section */
 .section { margin-bottom: 32px; }
-.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #D4E8D4; }
+.section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid #21262d; }
 .section-header .icon { font-size: 1.5em; }
-.section-header h2 { font-size: 1.3em; color: #1A2E1A; }
+.section-header h2 { font-size: 1.3em; color: #fff; }
 
 /* Activity card */
-.card { background: #FFFFFF; border: 1px solid #D4E8D4; border-radius: 14px; padding: 20px; margin-bottom: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); transition: border-color 0.2s; }
-.card:hover { border-color: #059669; }
+.card { background: #161b22; border: 1px solid #21262d; border-radius: 12px; padding: 20px; margin-bottom: 12px; transition: border-color 0.2s; }
+.card:hover { border-color: #30363d; }
 .card .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
-.card h3 { font-size: 1.1em; color: #1A2E1A; }
-.card .provider { color: #4A6D4A; font-size: 0.85em; margin-top: 2px; }
-.card .cost { background: #D1FAE5; color: #047857; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 700; white-space: nowrap; }
+.card h3 { font-size: 1.1em; color: #fff; }
+.card .provider { color: #8b949e; font-size: 0.85em; margin-top: 2px; }
+.card .cost { background: #064e3b; color: #6ee7b7; padding: 4px 10px; border-radius: 6px; font-size: 0.85em; font-weight: 700; white-space: nowrap; }
 .card .details { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 8px; margin: 12px 0; }
-.card .detail { display: flex; gap: 8px; font-size: 0.9em; color: #4A6D4A; }
-.card .detail .label { min-width: 20px; }
-.card .desc { color: #4A6D4A; font-size: 0.9em; line-height: 1.6; margin: 12px 0; }
+.card .detail { display: flex; gap: 8px; font-size: 0.9em; }
+.card .detail .label { color: #8b949e; min-width: 20px; }
+.card .desc { color: #c9d1d9; font-size: 0.9em; line-height: 1.6; margin: 12px 0; }
 .card .tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
 .tag { padding: 3px 10px; border-radius: 20px; font-size: 0.78em; font-weight: 600; }
-.tag-yes { background: #D1FAE5; color: #047857; }
-.tag-no { background: #FEE2E2; color: #DC2626; }
-.tag-maybe { background: #FEF3C7; color: #D97706; }
-.card .contact { margin-top: 12px; padding-top: 12px; border-top: 1px solid #D4E8D4; font-size: 0.85em; color: #8BA68B; }
-.card .contact a { color: #0284C7; text-decoration: none; }
+.tag-yes { background: #064e3b; color: #6ee7b7; }
+.tag-no { background: #4c0519; color: #fda4af; }
+.tag-maybe { background: #713f12; color: #fde68a; }
+.card .contact { margin-top: 12px; padding-top: 12px; border-top: 1px solid #21262d; font-size: 0.85em; color: #8b949e; }
+.card .contact a { color: #58a6ff; text-decoration: none; }
 .card .contact a:hover { text-decoration: underline; }
 
 /* Blocker timeline */
 .timeline { position: relative; padding-left: 24px; }
-.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #D4E8D4; }
-.timeline-item { position: relative; margin-bottom: 16px; padding: 12px 16px; background: #FFFFFF; border: 1px solid #D4E8D4; border-radius: 8px; }
-.timeline-item::before { content: ''; position: absolute; left: -20px; top: 16px; width: 10px; height: 10px; border-radius: 50%; background: #D97706; border: 2px solid #F0FAF4; }
-.timeline-item .tdate { font-weight: 700; color: #D97706; font-size: 0.9em; }
-.timeline-item .tdesc { color: #4A6D4A; font-size: 0.9em; margin-top: 4px; }
+.timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #21262d; }
+.timeline-item { position: relative; margin-bottom: 16px; padding: 12px 16px; background: #161b22; border: 1px solid #21262d; border-radius: 8px; }
+.timeline-item::before { content: ''; position: absolute; left: -20px; top: 16px; width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; border: 2px solid #0f1117; }
+.timeline-item .tdate { font-weight: 700; color: #f59e0b; font-size: 0.9em; }
+.timeline-item .tdesc { color: #c9d1d9; font-size: 0.9em; margin-top: 4px; }
 
 /* Footer */
-.footer { text-align: center; padding: 32px; color: #8BA68B; font-size: 0.8em; border-top: 1px solid #D4E8D4; margin-top: 32px; }
-.footer a { color: #0284C7; text-decoration: none; }
+.footer { text-align: center; padding: 32px; color: #484f58; font-size: 0.8em; border-top: 1px solid #21262d; margin-top: 32px; }
+.footer a { color: #58a6ff; text-decoration: none; }
 
 /* Quick fit table */
 .fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 32px; }
-.fit-col { background: #FFFFFF; border: 1px solid #D4E8D4; border-radius: 14px; padding: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+.fit-col { background: #161b22; border: 1px solid #21262d; border-radius: 12px; padding: 16px; }
 .fit-col h3 { font-size: 1em; margin-bottom: 12px; }
-.fit-col .fit-item { padding: 6px 0; border-bottom: 1px solid #D4E8D4; font-size: 0.9em; display: flex; justify-content: space-between; }
+.fit-col .fit-item { padding: 6px 0; border-bottom: 1px solid #21262d; font-size: 0.9em; display: flex; justify-content: space-between; }
 .fit-col .fit-item:last-child { border-bottom: none; }
 
 @media (max-width: 600px) {
@@ -116,6 +114,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
 
 <div class="container">
 
+<!-- DEADLINES -->
 <div id="deadlines" class="urgent-banner">
   <h2>🚨 Action Items & Deadlines</h2>
   <div class="urgent-item"><span class="date">MAR 16</span><div class="info"><strong>Peak Performance registration opens</strong> on Stamford Rec website. Fills fast. Both girls. $200-300/wk.</div></div>
@@ -126,8 +125,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   <div class="urgent-item"><span class="date green">TBD</span><div class="info"><strong>Roxbury Kids Club</strong> 2026 dates not published yet. Clark emailed to get on notification list.</div></div>
 </div>
 
+<!-- HORSES -->
 <div id="horse" class="section">
   <div class="section-header"><span class="icon">🐴</span><h2>Horseback Riding</h2></div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Summer Horse Camp</h3><div class="provider">Getner Barn · 16 Richards Ave, Norwalk</div></div>
@@ -148,8 +149,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   </div>
 </div>
 
+<!-- SOCCER -->
 <div id="soccer" class="section">
   <div class="section-header"><span class="icon">⚽</span><h2>Soccer</h2></div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>SELECT Program</h3><div class="provider">JA Elite Soccer · Stamford</div></div>
@@ -168,6 +171,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
     </div>
     <div class="contact">🔗 <a href="https://jaelitesoccer.com">jaelitesoccer.com</a></div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Soccer Camp</h3><div class="provider">Chelsea Piers CT · Stamford</div></div>
@@ -187,8 +191,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   </div>
 </div>
 
+<!-- TENNIS -->
 <div id="tennis" class="section">
   <div class="section-header"><span class="icon">🎾</span><h2>Tennis</h2></div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Junior Tennis Team</h3><div class="provider">Roxbury Swim & Tennis Club</div></div>
@@ -208,9 +214,11 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   </div>
 </div>
 
+<!-- SWIMMING -->
 <div id="swim" class="section">
   <div class="section-header"><span class="icon">🏊</span><h2>Swimming & Aquatics</h2></div>
-  <p style="color:#8BA68B; margin-bottom:16px; font-size:0.9em;">All Roxbury aquatics registration opens <strong style="color:#D97706;">May 24</strong> at roxburyclub.com · Member: FOR128</p>
+  <p style="color:#8b949e; margin-bottom:16px; font-size:0.9em;">All Roxbury aquatics registration opens <strong style="color:#f6c445;">May 24</strong> at roxburyclub.com · Member: FOR128</p>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Swim Team</h3><div class="provider">Roxbury Club · Division 1 FCSL</div></div>
@@ -227,6 +235,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
       <span class="tag tag-maybe">⚠️ Eloise (6, verify min age 7)</span>
     </div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Dive Team</h3><div class="provider">Roxbury Club · Division 1 FCSL</div></div>
@@ -242,6 +251,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
       <span class="tag tag-no">❌ Eloise (min age 8)</span>
     </div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Water Polo</h3><div class="provider">Roxbury Club · Division 1 FCSL</div></div>
@@ -257,6 +267,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
       <span class="tag tag-maybe">⚠️ Eloise (min age 7)</span>
     </div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Group Swim Clinics</h3><div class="provider">Roxbury Club</div></div>
@@ -268,6 +279,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
       <span class="tag tag-yes">✅ Eloise (Level 1)</span>
     </div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Other Aquatics</h3><div class="provider">Roxbury Club</div></div>
@@ -284,8 +296,10 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   </div>
 </div>
 
+<!-- COOKING -->
 <div id="cook" class="section">
   <div class="section-header"><span class="icon">🍳</span><h2>Cooking</h2></div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Ages 8-14 Cooking Camps</h3><div class="provider">Hudson Table · Stamford</div></div>
@@ -297,13 +311,13 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
       <div class="detail"><span class="label">📅</span> Jul 13-17: Baking & Pastry</div>
       <div class="detail"><span class="label">⏰</span> 10 AM – 3 PM daily</div>
     </div>
-    <div class="desc">Week-long immersive cooking camps. Each day kids create 4-5 dishes from scratch. Flexible drop-off 9:45, pickup 3:15. Extended day to 4:15 available. All food included, nut-free. Non-refundable, switchable until Jun 1.</div>
     <div class="tags">
       <span class="tag tag-yes">✅ Charlotte</span>
       <span class="tag tag-no">❌ Eloise (too young)</span>
     </div>
-    <div class="contact">🔗 <a href="https://hudsontable.com/stamford/kids-summer-classes/">hudsontable.com</a> · 📧 stamford@hudsontable.com</div>
+    <div class="contact">🔗 <a href="https://hudsontable.com">hudsontable.com</a></div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Young Kids Cooking (ages 4-7)</h3><div class="provider">Hudson Table · Stamford</div></div>
@@ -318,12 +332,14 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
       <span class="tag tag-no">❌ Charlotte (too old)</span>
       <span class="tag tag-yes">✅ Eloise (PM available)</span>
     </div>
-    <div class="contact">🔗 <a href="https://hudsontable.com/stamford/kids-summer-classes/">hudsontable.com</a></div>
+    <div class="contact">🔗 <a href="https://hudsontable.com">hudsontable.com</a></div>
   </div>
 </div>
 
+<!-- MULTI-SPORT -->
 <div id="multi" class="section">
   <div class="section-header"><span class="icon">🏃</span><h2>Multi-Sport & General</h2></div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Peak Performance Sports Camp</h3><div class="provider">Scofield Magnet School · Stamford</div></div>
@@ -342,6 +358,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
     </div>
     <div class="contact">🔗 <a href="https://stamfordrecreation.com">stamfordrecreation.com</a></div>
   </div>
+
   <div class="card">
     <div class="card-top">
       <div><h3>Kids Club</h3><div class="provider">Roxbury Swim & Tennis Club</div></div>
@@ -360,6 +377,7 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   </div>
 </div>
 
+<!-- BLOCKERS -->
 <div id="blockers" class="section">
   <div class="section-header"><span class="icon">⚠️</span><h2>Summer Blockers</h2></div>
   <div class="timeline">
@@ -370,38 +388,39 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
   </div>
 </div>
 
+<!-- FIT GUIDE -->
 <div id="fit" class="section">
   <div class="section-header"><span class="icon">📋</span><h2>Quick Fit Guide</h2></div>
   <div class="fit-grid">
     <div class="fit-col">
       <h3>🎀 Charlotte (9)</h3>
-      <div class="fit-item"><span>Getner Barn Horse Camp</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>JA Elite Soccer SELECT</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Chelsea Piers Soccer</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Junior Tennis</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Swim Team</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Dive Team</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Water Polo</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Swim Clinics (Level 2)</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Hudson Table Cooking</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Peak Performance</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Kids Club</span><span style="color:#DC2626">❌ max 8</span></div>
-      <div class="fit-item"><span>Hudson Table Young Kids</span><span style="color:#DC2626">❌ max 7</span></div>
+      <div class="fit-item"><span>Getner Barn Horse Camp</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>JA Elite Soccer SELECT</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Chelsea Piers Soccer</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Junior Tennis</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Swim Team</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Dive Team</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Water Polo</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Swim Clinics (Level 2)</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Hudson Table Cooking</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Peak Performance</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Kids Club</span><span style="color:#fda4af">❌ max 8</span></div>
+      <div class="fit-item"><span>Hudson Table Young Kids</span><span style="color:#fda4af">❌ max 7</span></div>
     </div>
     <div class="fit-col">
       <h3>🌸 Eloise (6)</h3>
-      <div class="fit-item"><span>Getner Barn Horse Camp</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Chelsea Piers Soccer</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Junior Tennis</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Swim Clinics (Level 1)</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Hudson Table Young Kids</span><span style="color:#059669">✅ PM</span></div>
-      <div class="fit-item"><span>Peak Performance</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Kids Club</span><span style="color:#059669">✅</span></div>
-      <div class="fit-item"><span>Roxbury Swim Team</span><span style="color:#D97706">⚠️ age 7 min</span></div>
-      <div class="fit-item"><span>Roxbury Water Polo</span><span style="color:#D97706">⚠️ age 7 min</span></div>
-      <div class="fit-item"><span>Roxbury Dive Team</span><span style="color:#DC2626">❌ min 8</span></div>
-      <div class="fit-item"><span>JA Elite Soccer</span><span style="color:#DC2626">❌ 2020</span></div>
-      <div class="fit-item"><span>Hudson Table 8-14</span><span style="color:#DC2626">❌ too young</span></div>
+      <div class="fit-item"><span>Getner Barn Horse Camp</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Chelsea Piers Soccer</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Junior Tennis</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Swim Clinics (Level 1)</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Hudson Table Young Kids</span><span style="color:#6ee7b7">✅ PM</span></div>
+      <div class="fit-item"><span>Peak Performance</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Kids Club</span><span style="color:#6ee7b7">✅</span></div>
+      <div class="fit-item"><span>Roxbury Swim Team</span><span style="color:#fde68a">⚠️ age 7 min</span></div>
+      <div class="fit-item"><span>Roxbury Water Polo</span><span style="color:#fde68a">⚠️ age 7 min</span></div>
+      <div class="fit-item"><span>Roxbury Dive Team</span><span style="color:#fda4af">❌ min 8</span></div>
+      <div class="fit-item"><span>JA Elite Soccer</span><span style="color:#fda4af">❌ 2020</span></div>
+      <div class="fit-item"><span>Hudson Table 8-14</span><span style="color:#fda4af">❌ too young</span></div>
     </div>
   </div>
 </div>
@@ -409,23 +428,17 @@ body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Robo
 </div>
 
 <div class="footer">
-  Compiled by Clark · <a href="https://docs.google.com/spreadsheets/d/1P2jEWhvKkoXybdRr1eQZt0H2KKMnixZx7d26Q43WJWk/edit">Spreadsheet Planner</a> · <a href="https://docs.google.com/document/d/11i4HjnQCXEoyzJRjU_icZ8K-Loe8u04p1hmSIfNmt0M/edit">Google Doc</a> · <a href="costa-rica.html">Costa Rica Trip</a><br>
-  Roxbury portal monitored weekly · Updated Mar 12, 2026
+  Compiled by Clark · <a href="https://docs.google.com/spreadsheets/d/1P2jEWhvKkoXybdRr1eQZt0H2KKMnixZx7d26Q43WJWk/edit">Spreadsheet Planner</a> · <a href="https://docs.google.com/document/d/11i4HjnQCXEoyzJRjU_icZ8K-Loe8u04p1hmSIfNmt0M/edit">Google Doc</a><br>
+  Roxbury portal monitored weekly · Updated Mar 12, 2026<br><a href="costa-rica.html">🇨🇷 Costa Rica Trip</a>
 </div>
 
 <script>
+// Smooth scroll + active nav
 document.querySelectorAll('.nav a').forEach(a => {
   a.addEventListener('click', e => {
     document.querySelectorAll('.nav a').forEach(x => x.classList.remove('active'));
     a.classList.add('active');
   });
-});
-const sections = document.querySelectorAll('.section[id], .urgent-banner[id]');
-const navLinks = document.querySelectorAll('.nav a');
-window.addEventListener('scroll', () => {
-  let current = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
-  navLinks.forEach(a => { a.classList.remove('active'); if (a.getAttribute('href') === '#' + current) a.classList.add('active'); });
 });
 </script>
 
