@@ -3,821 +3,326 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Costa Rica Spring Break 2026 - Forkan Family</title>
+<title>Costa Rica Spring Break 2026</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #F0FAF4; color: #1A2E1A; }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+.hero { background: linear-gradient(135deg, #059669 0%, #0284C7 50%, #0EA5E9 100%); padding: 48px 24px 32px; text-align: center; color: white; }
+.hero h1 { font-size: 2.2em; font-weight: 800; color: #fff; margin-bottom: 8px; letter-spacing: -0.5px; }
+.hero h1 span { color: #FEF3C7; }
+.hero .subtitle { color: rgba(255,255,255,0.8); font-size: 1em; }
+.hero .meta { display: flex; justify-content: center; gap: 24px; margin-top: 16px; flex-wrap: wrap; }
+.hero .chip { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.25); border-radius: 12px; padding: 10px 18px; font-size: 0.9em; }
+.hero .chip strong { display: block; font-weight: 700; }
+.hero .chip span { color: rgba(255,255,255,0.75); font-size: 0.85em; }
 
-  :root {
-    --bg: #F0FAF4;
-    --card: #FFFFFF;
-    --text: #1A2E1A;
-    --text-secondary: #4A6D4A;
-    --text-muted: #8BA68B;
-    --border: #D4E8D4;
-    --emerald: #059669;
-    --emerald-light: #D1FAE5;
-    --emerald-dark: #047857;
-    --blue: #0284C7;
-    --blue-light: #E0F2FE;
-    --amber: #D97706;
-    --amber-light: #FEF3C7;
-    --red: #DC2626;
-    --purple: #7C3AED;
-    --gradient: linear-gradient(135deg, #059669 0%, #0284C7 50%, #0EA5E9 100%);
-    --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
-    --shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
-    --shadow-md: 0 4px 6px rgba(0,0,0,0.07), 0 2px 4px rgba(0,0,0,0.06);
-    --radius: 14px;
-    --radius-sm: 10px;
-  }
+.nav { position: sticky; top: 0; z-index: 100; background: #047857; padding: 0 16px; display: flex; gap: 0; overflow-x: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.nav a { padding: 12px 16px; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.85em; font-weight: 600; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+.nav a:hover { color: #fff; border-bottom-color: #FEF3C7; }
 
-  body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
+.container { max-width: 900px; margin: 0 auto; padding: 24px 16px; }
 
-  .container { max-width: 680px; margin: 0 auto; padding: 16px; }
+.section-title { font-size: 1.3em; font-weight: 700; color: #047857; margin: 32px 0 16px; border-bottom: 2px solid #D1FAE5; padding-bottom: 8px; }
 
-  /* Header */
-  .header {
-    background: var(--gradient);
-    border-radius: var(--radius);
-    padding: 36px 28px 28px;
-    color: white;
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-  }
-  .header::before {
-    content: '';
-    position: absolute;
-    top: -60%;
-    right: -25%;
-    width: 300px;
-    height: 300px;
-    background: rgba(255,255,255,0.07);
-    border-radius: 50%;
-  }
-  .header::after {
-    content: '';
-    position: absolute;
-    bottom: -40%;
-    left: -15%;
-    width: 250px;
-    height: 250px;
-    background: rgba(255,255,255,0.05);
-    border-radius: 50%;
-  }
-  .header-content { position: relative; z-index: 1; }
-  .header-flag { font-size: 28px; margin-bottom: 4px; }
-  .header h1 { font-size: 26px; font-weight: 800; margin-bottom: 2px; letter-spacing: -0.5px; }
-  .header .subtitle { font-size: 14px; opacity: 0.85; font-weight: 400; }
-  .header .dates {
-    display: inline-block;
-    background: rgba(255,255,255,0.18);
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 13px;
-    font-weight: 500;
-    margin-top: 12px;
-  }
+/* Flight cards */
+.flight-row { display: flex; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+.flight-card { background: white; border-radius: 16px; padding: 20px 24px; flex: 1; min-width: 260px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-left: 4px solid #0284C7; }
+.flight-card .route { font-size: 1.4em; font-weight: 800; letter-spacing: -0.5px; }
+.flight-card .detail { color: #6B7280; font-size: 0.9em; margin-top: 6px; }
+.flight-card .times { font-size: 1.1em; font-weight: 600; margin-top: 8px; }
 
-  /* Countdown */
-  .countdown {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 8px;
-    margin-top: 16px;
-  }
-  .countdown-item {
-    text-align: center;
-    background: rgba(255,255,255,0.15);
-    border-radius: var(--radius-sm);
-    padding: 10px 4px;
-  }
-  .countdown-num {
-    font-size: 28px;
-    font-weight: 800;
-    line-height: 1;
-  }
-  .countdown-label {
-    font-size: 10px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    opacity: 0.7;
-    margin-top: 2px;
-  }
+/* Hotel cards */
+.hotel-row { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
+.hotel-card { background: white; border-radius: 16px; padding: 20px; flex: 1; min-width: 240px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.hotel-card.booked { border-left: 4px solid #059669; }
+.hotel-card .hotel-name { font-weight: 700; font-size: 1.05em; margin-bottom: 4px; }
+.hotel-card .dates { color: #6B7280; font-size: 0.88em; margin-bottom: 8px; }
+.hotel-card .conf { background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 8px; padding: 8px 12px; font-size: 0.85em; color: #166534; font-family: monospace; }
+.hotel-card .detail { font-size: 0.88em; color: #6B7280; margin-top: 6px; }
+.badge-booked { display: inline-block; background: #DCFCE7; color: #166534; font-size: 0.75em; font-weight: 600; padding: 2px 8px; border-radius: 20px; margin-bottom: 8px; }
 
-  /* Section */
-  .section { margin-bottom: 16px; }
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    padding: 0 4px;
-  }
-  .section-icon { font-size: 18px; }
-  .section-title { font-size: 16px; font-weight: 700; color: var(--text); }
-  .section-badge {
-    margin-left: auto;
-    font-size: 11px;
-    font-weight: 600;
-    padding: 2px 10px;
-    border-radius: 12px;
-  }
+/* Day cards */
+.day-card { background: white; border-radius: 16px; padding: 20px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.day-card .day-header { display: flex; align-items: baseline; gap: 12px; margin-bottom: 12px; }
+.day-card .day-num { font-size: 1.5em; font-weight: 800; color: #059669; }
+.day-card .day-date { font-size: 1em; font-weight: 600; }
+.day-card .day-theme { color: #6B7280; font-size: 0.9em; }
+.activity { display: flex; gap: 12px; padding: 10px 0; border-top: 1px solid #F3F4F6; align-items: flex-start; }
+.activity .time-badge { background: #F0FDF4; color: #047857; font-size: 0.78em; font-weight: 600; padding: 3px 8px; border-radius: 6px; white-space: nowrap; min-width: 60px; text-align: center; margin-top: 2px; }
+.activity .act-info .act-name { font-weight: 600; font-size: 0.95em; }
+.activity .act-info .act-detail { color: #6B7280; font-size: 0.85em; margin-top: 2px; }
+.activity .act-info .act-conf { color: #059669; font-size: 0.82em; font-weight: 600; margin-top: 2px; }
+.badge-confirmed { display: inline-block; background: #DCFCE7; color: #166534; font-size: 0.72em; font-weight: 600; padding: 1px 7px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
+.badge-optional { display: inline-block; background: #FEF3C7; color: #92400E; font-size: 0.72em; font-weight: 600; padding: 1px 7px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
 
-  /* Cards */
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 18px;
-    box-shadow: var(--shadow-sm);
-  }
-  .card + .card { margin-top: 10px; }
+/* Budget */
+.budget-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+.budget-card { background: white; border-radius: 14px; padding: 16px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.budget-card .amount { font-size: 1.6em; font-weight: 800; color: #059669; }
+.budget-card .label { font-size: 0.8em; color: #6B7280; margin-top: 4px; }
 
-  /* Flight card */
-  .flight-card {
-    background: linear-gradient(135deg, #EFF6FF 0%, #F0FAF4 100%);
-    border: 1px solid #BFDBFE;
-  }
-  .flight-row {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-  }
-  .flight-row + .flight-row { border-top: 1px solid var(--border); }
-  .flight-time { font-size: 18px; font-weight: 700; min-width: 60px; }
-  .flight-arrow { color: var(--blue); font-size: 14px; }
-  .flight-detail { font-size: 12px; color: var(--text-secondary); }
-  .flight-detail strong { color: var(--text); }
-  .record-locator {
-    display: inline-block;
-    background: var(--blue);
-    color: white;
-    padding: 2px 10px;
-    border-radius: 6px;
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    font-family: monospace;
-  }
+.back-link { display: inline-block; margin-bottom: 16px; color: #047857; text-decoration: none; font-weight: 600; font-size: 0.9em; }
+.back-link:hover { text-decoration: underline; }
 
-  /* Lodging cards */
-  .lodging-status {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 8px;
-    font-size: 10px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-  }
-  .status-booked { background: var(--emerald-light); color: var(--emerald-dark); }
-  .status-pending { background: var(--amber-light); color: var(--amber); }
-
-  .lodging-name { font-size: 15px; font-weight: 700; margin: 6px 0 4px; }
-  .lodging-meta { font-size: 12px; color: var(--text-secondary); line-height: 1.6; }
-  .lodging-meta strong { color: var(--text); }
-  .conf-num {
-    font-family: monospace;
-    font-size: 11px;
-    background: #F3F4F6;
-    padding: 2px 6px;
-    border-radius: 4px;
-    letter-spacing: 0.5px;
-  }
-
-  /* Day cards */
-  .day-card {
-    border-left: 4px solid var(--emerald);
-    position: relative;
-  }
-  .day-label {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--emerald);
-    margin-bottom: 2px;
-  }
-  .day-title { font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-  .day-activity {
-    display: flex;
-    gap: 10px;
-    padding: 6px 0;
-    font-size: 13px;
-  }
-  .day-activity + .day-activity { border-top: 1px dashed var(--border); }
-  .time-badge {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--blue);
-    min-width: 24px;
-    padding-top: 2px;
-  }
-  .activity-text { color: var(--text-secondary); }
-  .activity-text strong { color: var(--text); }
-  .activity-cost {
-    margin-left: auto;
-    font-size: 12px;
-    font-weight: 600;
-    color: var(--emerald-dark);
-    white-space: nowrap;
-  }
-
-  /* Checklist */
-  .checklist-group { margin-bottom: 14px; }
-  .checklist-group:last-child { margin-bottom: 0; }
-  .checklist-deadline {
-    font-size: 11px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: var(--amber);
-    margin-bottom: 6px;
-    padding-left: 4px;
-  }
-  .checklist-deadline.urgent { color: var(--red); }
-  .checklist-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 8px 4px;
-    border-radius: var(--radius-sm);
-    cursor: pointer;
-    transition: background 0.15s;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .checklist-item:hover { background: #F0FAF4; }
-  .checklist-item.checked .checklist-text {
-    text-decoration: line-through;
-    color: var(--text-muted);
-  }
-  .checklist-cb {
-    width: 22px;
-    height: 22px;
-    border: 2px solid var(--border);
-    border-radius: 6px;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.15s;
-    margin-top: 1px;
-  }
-  .checklist-item.checked .checklist-cb {
-    background: var(--emerald);
-    border-color: var(--emerald);
-  }
-  .checklist-cb svg {
-    width: 14px;
-    height: 14px;
-    opacity: 0;
-    transition: opacity 0.15s;
-  }
-  .checklist-item.checked .checklist-cb svg { opacity: 1; }
-  .checklist-text { font-size: 13px; padding-top: 2px; }
-
-  .progress-bar {
-    height: 6px;
-    background: #E5E7EB;
-    border-radius: 3px;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: var(--emerald);
-    border-radius: 3px;
-    transition: width 0.3s ease;
-  }
-  .progress-text {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-bottom: 6px;
-    text-align: right;
-  }
-
-  /* Budget */
-  .budget-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .budget-item { text-align: center; padding: 10px; background: #F9FAFB; border-radius: var(--radius-sm); }
-  .budget-value { font-size: 20px; font-weight: 700; }
-  .budget-label { font-size: 10px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text-muted); margin-top: 2px; }
-
-  /* Footer */
-  .footer {
-    text-align: center;
-    padding: 24px 0;
-    color: var(--text-muted);
-    font-size: 11px;
-  }
-
-  /* Promo code callout */
-  .promo {
-    background: var(--amber-light);
-    border: 1px solid #FDE68A;
-    border-radius: var(--radius-sm);
-    padding: 8px 12px;
-    font-size: 12px;
-    color: #92400E;
-    margin-top: 8px;
-  }
-  .promo code {
-    background: white;
-    padding: 1px 6px;
-    border-radius: 4px;
-    font-weight: 700;
-    font-size: 11px;
-  }
-
-  @media (max-width: 480px) {
-    .container { padding: 10px; }
-    .header { padding: 28px 20px 22px; }
-    .header h1 { font-size: 22px; }
-    .countdown-num { font-size: 22px; }
-    .budget-grid { grid-template-columns: 1fr 1fr; }
-  }
+footer { text-align: center; padding: 32px 16px; color: #9CA3AF; font-size: 0.85em; }
 </style>
 </head>
 <body>
 
+<div class="hero">
+  <h1>🌴 Costa Rica <span>Spring Break</span></h1>
+  <div class="subtitle">April 5–11, 2026 · Arenal Volcano · Forkan Family</div>
+  <div class="meta">
+    <div class="chip"><strong>✈️ EWR → SJO</strong><span>Sun Apr 5 · UA 1222</span></div>
+    <div class="chip"><strong>🏨 2 Hotels</strong><span>Nayara + The Springs</span></div>
+    <div class="chip"><strong>✈️ SJO → EWR</strong><span>Sat Apr 11 · UA 1560</span></div>
+    <div class="chip"><strong>👨‍👩‍👧‍👧 4 Travelers</strong><span>Jeff · Jeanette · Charlotte · Eloise</span></div>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="index.html">← Summer 2026</a>
+  <a href="#flights">Flights</a>
+  <a href="#hotels">Hotels</a>
+  <a href="#itinerary">Itinerary</a>
+  <a href="#budget">Budget</a>
+</nav>
+
 <div class="container">
+  <a href="index.html" class="back-link">← Back to Summer 2026</a>
 
-  <!-- Header -->
-  <div class="header">
-    <div class="header-content">
-      <div class="header-flag">&#127464;&#127479;</div>
-      <h1>Costa Rica Spring Break</h1>
-      <div class="subtitle">Arenal / La Fortuna - Forkan Family</div>
-      <div class="dates">Apr 5 - 11, 2026</div>
+  <!-- FLIGHTS -->
+  <div id="flights" class="section-title">✈️ Flights</div>
+  <div class="flight-row">
+    <div class="flight-card">
+      <div class="route">EWR → SJO</div>
+      <div class="times">5:00pm → 8:19pm</div>
+      <div class="detail">Sun Apr 5 · United 1222 · Boeing 737 Max 8 · 5h 19m</div>
+      <div class="detail" style="margin-top:6px">United loyalty: VC236734 · Amex Platinum x1009</div>
+    </div>
+    <div class="flight-card">
+      <div class="route">SJO → EWR</div>
+      <div class="times">12:44pm → 8:07pm</div>
+      <div class="detail">Sat Apr 11 · United 1560 · Boeing 737 Max 8 · 5h 23m</div>
+    </div>
+  </div>
 
-      <div class="countdown" id="countdown">
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-days">--</div>
-          <div class="countdown-label">Days</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-hours">--</div>
-          <div class="countdown-label">Hours</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-mins">--</div>
-          <div class="countdown-label">Mins</div>
-        </div>
-        <div class="countdown-item">
-          <div class="countdown-num" id="cd-secs">--</div>
-          <div class="countdown-label">Secs</div>
-        </div>
+  <!-- HOTELS -->
+  <div id="hotels" class="section-title">🏨 Hotels</div>
+  <div class="hotel-row">
+    <div class="hotel-card booked">
+      <div class="badge-booked">✓ Booked</div>
+      <div class="hotel-name">Marriott Hacienda Belen</div>
+      <div class="dates">Apr 5 (1 night) · Near SJO Airport</div>
+      <div class="detail">Sleep off late arrival. Early start to Arenal next morning.</div>
+    </div>
+    <div class="hotel-card booked">
+      <div class="badge-booked">✓ Booked</div>
+      <div class="hotel-name">Nayara Tented Camp</div>
+      <div class="dates">Apr 6–8 (2 nights) · Check-in 3:00 PM · Check-out 12:00 PM</div>
+      <div class="conf">Confirmation: 10868SG135931</div>
+      <div class="detail">Nayara Tent · King + 2 day beds · 1,700 sq ft · Breakfast included · $3,422.21</div>
+    </div>
+    <div class="hotel-card booked">
+      <div class="badge-booked">✓ Booked</div>
+      <div class="hotel-name">The Springs Resort & Spa</div>
+      <div class="dates">Apr 8–11 (3 nights) · Check-in 3:30 PM · Check-out 11:30 AM</div>
+      <div class="conf">Confirmation: ZO-AX1031-19594</div>
+      <div class="detail">Vista Grande Double Queen · 915 sq ft · 28 hot springs pools · Club Rio · Breakfast NOT included · $5,409.87</div>
+    </div>
+  </div>
+
+  <!-- ITINERARY -->
+  <div id="itinerary" class="section-title">📅 Day by Day</div>
+
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 1</div>
+      <div class="day-date">Sunday, April 5</div>
+      <div class="day-theme">Travel Day</div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">5:00pm</div>
+      <div class="act-info">
+        <div class="act-name">Fly EWR → SJO <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">United 1222 · Arrive 8:19pm · Shuttle/taxi to hotel</div>
+      </div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">EVE</div>
+      <div class="act-info">
+        <div class="act-name">Check in · Marriott Hacienda Belen <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">Crash early. Private shuttle to Arenal departs next morning.</div>
       </div>
     </div>
   </div>
 
-  <!-- Flights -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">&#9992;&#65039;</span>
-      <span class="section-title">Flights</span>
-      <span class="record-locator">FNEW2Z</span>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 2</div>
+      <div class="day-date">Monday, April 6</div>
+      <div class="day-theme">Travel to Arenal</div>
     </div>
-    <div class="card flight-card">
-      <div class="flight-row">
-        <div>
-          <div class="flight-time">5:00p</div>
-          <div class="flight-detail">EWR</div>
-        </div>
-        <div class="flight-arrow">&#10132;</div>
-        <div>
-          <div class="flight-time">8:19p</div>
-          <div class="flight-detail">SJO</div>
-        </div>
-        <div style="margin-left: auto; text-align: right;">
-          <div class="flight-detail"><strong>United 1222</strong></div>
-          <div class="flight-detail">Sun Apr 5 | 5h 19m</div>
-          <div class="flight-detail">Boeing 737 Max 8</div>
-        </div>
+    <div class="activity">
+      <div class="time-badge">AM</div>
+      <div class="act-info">
+        <div class="act-name">Private shuttle to Arenal <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">~3.5 hours through the countryside. Leave early.</div>
       </div>
-      <div class="flight-row">
-        <div>
-          <div class="flight-time">12:44p</div>
-          <div class="flight-detail">SJO</div>
-        </div>
-        <div class="flight-arrow">&#10132;</div>
-        <div>
-          <div class="flight-time">8:07p</div>
-          <div class="flight-detail">EWR</div>
-        </div>
-        <div style="margin-left: auto; text-align: right;">
-          <div class="flight-detail"><strong>United 1560</strong></div>
-          <div class="flight-detail">Sat Apr 11 | 5h 23m</div>
-          <div class="flight-detail">Boeing 737 Max 8</div>
-        </div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">3:00pm</div>
+      <div class="act-info">
+        <div class="act-name">Check in · Nayara Tented Camp <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">Explore property · Private plunge pool · Settle in</div>
       </div>
-      <div style="font-size: 11px; color: var(--text-muted); margin-top: 8px;">
-        4 travelers: Jeff, Jeanette, Charlotte, Eloise | United loyalty: VC236734 | Amex Platinum x1009
+    </div>
+    <div class="activity">
+      <div class="time-badge">EVE</div>
+      <div class="act-info">
+        <div class="act-name">Night Walk <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">Wildlife spotting in the rainforest</div>
       </div>
     </div>
   </div>
 
-  <!-- Lodging -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">&#127968;</span>
-      <span class="section-title">Lodging</span>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 3</div>
+      <div class="day-date">Tuesday, April 7</div>
+      <div class="day-theme">Adventure Day</div>
     </div>
-
-    <!-- Airport Hotel -->
-    <div class="card">
-      <span class="lodging-status status-pending">To Book</span>
-      <div class="lodging-name">Airport Hotel (SJO Area)</div>
-      <div class="lodging-meta">
-        <strong>Night:</strong> Apr 5 (1 night)<br>
-        <strong>Purpose:</strong> Sleep off late arrival before morning drive to Arenal<br>
-        <strong>Options:</strong> Marriott Hacienda Belen, InterContinental, Xandari Resort<br>
-        <strong>Est. cost:</strong> ~$150 | Check Amex FHR for perks
-      </div>
-    </div>
-
-    <!-- Nayara -->
-    <div class="card">
-      <span class="lodging-status status-booked">Booked</span>
-      <div class="lodging-name">Nayara Tented Camp</div>
-      <div class="lodging-meta">
-        <strong>Dates:</strong> Apr 6-8 (2 nights) | Check-in 3:00 PM, Check-out 12:00 PM<br>
-        <strong>Room:</strong> Nayara Tent - King bed + 2 day beds (1,700 sq ft)<br>
-        <strong>Confirmation:</strong> <span class="conf-num">10868SG135931</span> (Guest: Jeanette Forkan)<br>
-        <strong>Cost:</strong> $3,422.21 (non-refundable, breakfast included)<br>
-        <strong>Rate:</strong> Seasonal Savings - full prepayment
-      </div>
-    </div>
-
-    <!-- The Springs -->
-    <div class="card">
-      <span class="lodging-status status-booked">Booked</span>
-      <div class="lodging-name">The Springs Resort & Spa</div>
-      <div class="lodging-meta">
-        <strong>Dates:</strong> Apr 8-11 (3 nights) | Check-in 3:30 PM, Check-out 11:30 AM<br>
-        <strong>Room:</strong> Vista Grande Double Queen (2 queen beds, 915 sq ft)<br>
-        <strong>Confirmation:</strong> <span class="conf-num">ZO-AX1031-19594</span> (via Amex Travel)<br>
-        <strong>Cost:</strong> $5,409.87 (100K MR points = $700 offset applied)<br>
-        <strong>Includes:</strong> 28 hot springs pools, Club Rio adventure center<br>
-        <strong>Note:</strong> Breakfast NOT included. 10-15 min from Nayara.
+    <div class="activity">
+      <div class="time-badge">3:30pm</div>
+      <div class="act-info">
+        <div class="act-name">Sky Adventures Zipline & Aerial Tram <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">Arenal Park · 2-3 hours · Eloise qualifies (min age 5!) · ~$334</div>
       </div>
     </div>
   </div>
 
-  <!-- Day-by-Day -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">&#128197;</span>
-      <span class="section-title">Day by Day</span>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 4</div>
+      <div class="day-date">Wednesday, April 8</div>
+      <div class="day-theme">Bridges + Transfer</div>
     </div>
-
-    <!-- Day 1: Apr 5 -->
-    <div class="card day-card">
-      <div class="day-label">Day 1 - Sunday, April 5</div>
-      <div class="day-title">Travel Day</div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text"><strong>Fly EWR to SJO</strong> - Depart 5:00pm, arrive 8:19pm. Shuttle or taxi to airport hotel.</div>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">EVE</span>
-        <div class="activity-text">Check in to airport hotel. Crash. Early start tomorrow.</div>
+    <div class="activity">
+      <div class="time-badge">2:30pm</div>
+      <div class="act-info">
+        <div class="act-name">Arenal Hanging Bridges · Mistico Park <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">Self-guided walk · ~2 hours · Rainforest canopy walkways</div>
       </div>
     </div>
-
-    <!-- Day 2: Apr 6 -->
-    <div class="card day-card">
-      <div class="day-label">Day 2 - Monday, April 6</div>
-      <div class="day-title">Travel to Arenal + Settle In</div>
-      <div class="day-activity">
-        <span class="time-badge">AM</span>
-        <div class="activity-text"><strong>Private shuttle to Arenal</strong> - ~3.5 hours through the countryside. Leave early.</div>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text"><strong>Check in Nayara Tented Camp</strong> (3:00 PM). Explore the property, private plunge pool, settle in.</div>
-      </div>
-    </div>
-
-    <!-- Day 3: Apr 7 -->
-    <div class="card day-card" style="border-left-color: #0284C7;">
-      <div class="day-label" style="color: #0284C7;">Day 3 - Tuesday, April 7</div>
-      <div class="day-title">Adventure Day</div>
-      <div class="day-activity">
-        <span class="time-badge">AM</span>
-        <div class="activity-text"><strong>Mistico Hanging Bridges Park</strong> - Self-guided, ~2 hours. Rainforest canopy walkways.</div>
-        <span class="activity-cost">~$65</span>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text"><strong>Sky Adventures Zip Line</strong> - Hands-free system, 2-3 hours. Eloise (5) qualifies! Min age 5.</div>
-        <span class="activity-cost">~$334</span>
-      </div>
-      <div class="promo">Mistico promo code <code>SAVEINADVANCE</code> for 10% off (15+ days advance booking)</div>
-    </div>
-
-    <!-- Day 4: Apr 8 -->
-    <div class="card day-card" style="border-left-color: var(--amber);">
-      <div class="day-label" style="color: var(--amber);">Day 4 - Wednesday, April 8</div>
-      <div class="day-title">Chocolate Tour + Transfer Day</div>
-      <div class="day-activity">
-        <span class="time-badge">AM</span>
-        <div class="activity-text"><strong>Don Juan Chocolate & Coffee Tour</strong> - 2 hours, free hotel pickup. Hands-on chocolate making. Covered trails (rain-proof).</div>
-        <span class="activity-cost">~$100</span>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text"><strong>Transfer to The Springs Resort</strong> (~15 min drive). Check in 3:30 PM. Explore 28 hot springs pools!</div>
-      </div>
-    </div>
-
-    <!-- Day 5: Apr 9 -->
-    <div class="card day-card" style="border-left-color: var(--red);">
-      <div class="day-label" style="color: var(--red);">Day 5 - Thursday, April 9</div>
-      <div class="day-title">Volcano Day</div>
-      <div class="day-activity">
-        <span class="time-badge">AM</span>
-        <div class="activity-text"><strong>Arenal Volcano National Park</strong> - Group guided hike, 3 hours. Las Coladas lava trail. Up to 12 people.</div>
-        <span class="activity-cost">~$240</span>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text">Hot springs + Club Rio activities at The Springs. Pool time, lazy river, waterslides.</div>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">EVE</span>
-        <div class="activity-text"><em>Optional:</em> Night wildlife tour (~$170). Great for Charlotte, might be too late for Eloise.</div>
-      </div>
-    </div>
-
-    <!-- Day 6: Apr 10 -->
-    <div class="card day-card" style="border-left-color: var(--purple);">
-      <div class="day-label" style="color: var(--purple);">Day 6 - Friday, April 10</div>
-      <div class="day-title">Spa + Relaxation</div>
-      <div class="day-activity">
-        <span class="time-badge">AM</span>
-        <div class="activity-text"><strong>Springs Spa</strong> - Jeff & Jeanette. Kids at Club Rio adventure center.</div>
-        <span class="activity-cost">~$250</span>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text"><em>Optional:</em> Horseback riding (~$200). Charlotte rides solo, Eloise with an adult. Or more pool time.</div>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">EVE</span>
-        <div class="activity-text">Farewell dinner. Last night in paradise.</div>
-      </div>
-    </div>
-
-    <!-- Day 7: Apr 11 -->
-    <div class="card day-card">
-      <div class="day-label">Day 7 - Saturday, April 11</div>
-      <div class="day-title">Head Home</div>
-      <div class="day-activity">
-        <span class="time-badge">AM</span>
-        <div class="activity-text"><strong>Private shuttle Arenal to SJO</strong> - ~3.5 hours. Leave by 7:30 AM to be safe.</div>
-      </div>
-      <div class="day-activity">
-        <span class="time-badge">PM</span>
-        <div class="activity-text"><strong>Fly SJO to EWR</strong> - Depart 12:44pm, arrive 8:07pm. Home sweet home.</div>
+    <div class="activity">
+      <div class="time-badge">3:30pm</div>
+      <div class="act-info">
+        <div class="act-name">Transfer to The Springs Resort <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">~15 min drive · Check-in 3:30pm · 28 hot springs pools!</div>
       </div>
     </div>
   </div>
 
-  <!-- Checklist -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">&#9745;&#65039;</span>
-      <span class="section-title">To-Do List</span>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 5</div>
+      <div class="day-date">Thursday, April 9</div>
+      <div class="day-theme">Volcano Day</div>
     </div>
-    <div class="card">
-      <div class="progress-text" id="progress-text">0 of 14 complete</div>
-      <div class="progress-bar"><div class="progress-fill" id="progress-fill" style="width: 0%;"></div></div>
-
-      <!-- By Feb 15 -->
-      <div class="checklist-group">
-        <div class="checklist-deadline urgent">By Feb 15 (this week!)</div>
-        <div class="checklist-item" data-key="passports" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Confirm all 4 passports are current</span>
-        </div>
+    <div class="activity">
+      <div class="time-badge">AM</div>
+      <div class="act-info">
+        <div class="act-name">Arenal Volcano National Park <span class="badge-optional">Optional</span></div>
+        <div class="act-detail">Group guided hike · 3 hours · Las Coladas lava trail · ~$240</div>
       </div>
-
-      <!-- By Feb 20 -->
-      <div class="checklist-group">
-        <div class="checklist-deadline urgent">By Feb 20</div>
-        <div class="checklist-item" data-key="airport-hotel" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book airport hotel near SJO for Apr 5 (check Amex FHR)</span>
-        </div>
-      </div>
-
-      <!-- By Mar 15 -->
-      <div class="checklist-group">
-        <div class="checklist-deadline">By Mar 15</div>
-        <div class="checklist-item" data-key="shuttle-to" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book private shuttle SJO to Arenal (morning Apr 6)</span>
-        </div>
-        <div class="checklist-item" data-key="shuttle-from" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book private shuttle Arenal to SJO (morning Apr 11)</span>
-        </div>
-      </div>
-
-      <!-- By Mar 20 -->
-      <div class="checklist-group">
-        <div class="checklist-deadline">By Mar 20</div>
-        <div class="checklist-item" data-key="mistico" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book Mistico Hanging Bridges for Apr 7 (use promo SAVEINADVANCE)</span>
-        </div>
-        <div class="checklist-item" data-key="zipline" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book Sky Adventures Zip Line for Apr 7 afternoon</span>
-        </div>
-        <div class="checklist-item" data-key="chocolate" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book Don Juan Chocolate & Coffee Tour for Apr 8 morning</span>
-        </div>
-        <div class="checklist-item" data-key="volcano" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book Arenal Volcano group guided hike for Apr 9</span>
-        </div>
-        <div class="checklist-item" data-key="optionals" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Decide on optional activities: night wildlife tour, horseback riding</span>
-        </div>
-        <div class="checklist-item" data-key="spa" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book Springs Spa for Jeff & Jeanette (Apr 10 morning)</span>
-        </div>
-      </div>
-
-      <!-- By Mar 28 -->
-      <div class="checklist-group">
-        <div class="checklist-deadline">By Mar 28</div>
-        <div class="checklist-item" data-key="packing" onclick="toggleCheck(this)">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Build packing list</span>
-        </div>
-      </div>
-
-      <!-- Already done -->
-      <div class="checklist-group">
-        <div class="checklist-deadline" style="color: var(--emerald);">Done</div>
-        <div class="checklist-item checked" data-key="nayara-done" onclick="return false;" style="opacity: 0.5; cursor: default;">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book Nayara Tented Camp Apr 6-8</span>
-        </div>
-        <div class="checklist-item checked" data-key="springs-done" onclick="return false;" style="opacity: 0.5; cursor: default;">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book The Springs Resort Apr 8-11</span>
-        </div>
-        <div class="checklist-item checked" data-key="flights-done" onclick="return false;" style="opacity: 0.5; cursor: default;">
-          <div class="checklist-cb"><svg viewBox="0 0 14 14" fill="none"><path d="M2 7l3.5 3.5L12 4" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <span class="checklist-text">Book United flights EWR-SJO (230K MR)</span>
-        </div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">PM</div>
+      <div class="act-info">
+        <div class="act-name">Hot Springs + Club Rio</div>
+        <div class="act-detail">Pool time · Lazy river · Waterslides at The Springs</div>
       </div>
     </div>
   </div>
 
-  <!-- Budget -->
-  <div class="section">
-    <div class="section-header">
-      <span class="section-icon">&#128176;</span>
-      <span class="section-title">Budget</span>
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 6</div>
+      <div class="day-date">Friday, April 10</div>
+      <div class="day-theme">Spa + Relaxation</div>
     </div>
-    <div class="card">
-      <div class="budget-grid">
-        <div class="budget-item">
-          <div class="budget-value" style="color: var(--emerald);">$12,702</div>
-          <div class="budget-label">Cash Spent</div>
-        </div>
-        <div class="budget-item">
-          <div class="budget-value" style="color: var(--blue);">$3,000</div>
-          <div class="budget-label">Points Offset</div>
-        </div>
-        <div class="budget-item">
-          <div class="budget-value" style="color: var(--purple);">330K</div>
-          <div class="budget-label">MR Points Used</div>
-        </div>
-        <div class="budget-item">
-          <div class="budget-value" style="color: var(--amber);">~$2,200</div>
-          <div class="budget-label">Remaining (est.)</div>
-        </div>
+    <div class="activity">
+      <div class="time-badge">9:15am</div>
+      <div class="act-info">
+        <div class="act-name">Horseback Riding <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">Confirmation #74563 · Charlotte rides solo · Eloise with adult</div>
       </div>
-      <div style="margin-top: 12px; font-size: 12px; color: var(--text-secondary); line-height: 1.6;">
-        <strong>Booked:</strong> Flights $6,170 + Nayara $3,422 + Springs $5,410 = $15,002 total ($12,702 cash)<br>
-        <strong>Remaining estimates:</strong> Airport hotel ~$150, shuttles ~$400, activities ~$740-1,360, food ~$1,000, misc ~$450<br>
-        <strong>Points earned back:</strong> ~30,850 MR from 5X on flights
+    </div>
+    <div class="activity">
+      <div class="time-badge">PM</div>
+      <div class="act-info">
+        <div class="act-name">Springs Spa <span class="badge-optional">Book?</span></div>
+        <div class="act-detail">Jeff & Jeanette · Kids at Club Rio · ~$250</div>
+      </div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">EVE</div>
+      <div class="act-info">
+        <div class="act-name">Farewell Dinner</div>
+        <div class="act-detail">Last night in paradise 🌴</div>
       </div>
     </div>
   </div>
 
-  <div class="footer">
-    Forkan Family - Costa Rica 2026<br>
-    Pura Vida! &#127796;
+  <div class="day-card">
+    <div class="day-header">
+      <div class="day-num">Day 7</div>
+      <div class="day-date">Saturday, April 11</div>
+      <div class="day-theme">Head Home</div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">7:30am</div>
+      <div class="act-info">
+        <div class="act-name">Private shuttle Arenal → SJO <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">~3.5 hours · Leave by 7:30am to be safe</div>
+      </div>
+    </div>
+    <div class="activity">
+      <div class="time-badge">12:44pm</div>
+      <div class="act-info">
+        <div class="act-name">Fly SJO → EWR <span class="badge-confirmed">✓</span></div>
+        <div class="act-detail">United 1560 · Arrive Newark 8:07pm · Home sweet home 🏠</div>
+      </div>
+    </div>
   </div>
+
+  <!-- BUDGET -->
+  <div id="budget" class="section-title">💰 Budget</div>
+  <div class="budget-grid">
+    <div class="budget-card">
+      <div class="amount">$12,702</div>
+      <div class="label">Cash Spent</div>
+    </div>
+    <div class="budget-card">
+      <div class="amount">330K</div>
+      <div class="label">MR Points Used</div>
+    </div>
+    <div class="budget-card">
+      <div class="amount">$3,000</div>
+      <div class="label">Points Offset</div>
+    </div>
+    <div class="budget-card">
+      <div class="amount">~$2,200</div>
+      <div class="label">Remaining Est.</div>
+    </div>
+  </div>
+  <p style="color:#6B7280;font-size:0.85em;margin-bottom:32px">Booked: Flights $6,170 + Nayara $3,422 + Springs $5,410 = $15,002 total ($12,702 cash) · Remaining: Airport hotel ~$150, shuttles ~$400, activities ~$740–1,360, food ~$1,000, misc ~$450</p>
 
 </div>
 
-<script>
-// Countdown to Apr 5, 2026 5:00 PM ET
-function updateCountdown() {
-  const departure = new Date('2026-04-05T17:00:00-04:00');
-  const now = new Date();
-  const diff = departure - now;
-
-  if (diff <= 0) {
-    document.getElementById('cd-days').textContent = '0';
-    document.getElementById('cd-hours').textContent = '0';
-    document.getElementById('cd-mins').textContent = '0';
-    document.getElementById('cd-secs').textContent = '0';
-    return;
-  }
-
-  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-  const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-  document.getElementById('cd-days').textContent = days;
-  document.getElementById('cd-hours').textContent = hours;
-  document.getElementById('cd-mins').textContent = mins;
-  document.getElementById('cd-secs').textContent = secs;
-}
-
-updateCountdown();
-setInterval(updateCountdown, 1000);
-
-// Checklist with localStorage
-const STORAGE_KEY = 'cr-trip-2026-checklist';
-
-function getChecked() {
-  try {
-    return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-  } catch { return {}; }
-}
-
-function saveChecked(data) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-}
-
-function toggleCheck(el) {
-  const key = el.dataset.key;
-  const checked = getChecked();
-  if (checked[key]) {
-    delete checked[key];
-    el.classList.remove('checked');
-  } else {
-    checked[key] = true;
-    el.classList.add('checked');
-  }
-  saveChecked(checked);
-  updateProgress();
-}
-
-function updateProgress() {
-  const items = document.querySelectorAll('.checklist-item[data-key]:not([style*="opacity"])');
-  const checked = getChecked();
-  let total = items.length;
-  let done = 0;
-  items.forEach(el => {
-    if (checked[el.dataset.key]) done++;
-  });
-  // Add the 3 already-done items
-  total += 3;
-  done += 3;
-  const pct = Math.round((done / total) * 100);
-  document.getElementById('progress-fill').style.width = pct + '%';
-  document.getElementById('progress-text').textContent = done + ' of ' + total + ' complete';
-}
-
-// Restore state on load
-function restoreState() {
-  const checked = getChecked();
-  document.querySelectorAll('.checklist-item[data-key]').forEach(el => {
-    if (checked[el.dataset.key]) {
-      el.classList.add('checked');
-    }
-  });
-  updateProgress();
-}
-
-restoreState();
-</script>
+<footer>Forkan Family · Costa Rica Spring Break 2026 · <a href="index.html" style="color:#059669">← Summer 2026</a></footer>
 
 </body>
 </html>
